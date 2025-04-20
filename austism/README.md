@@ -2,48 +2,55 @@
 
 dataset can be found [here](https://drive.google.com/drive/folders/1kFSl8acOOQLJwG3v9Sdx2Q-TKpkA_U8b?usp=drive_link):
 
-This project integrates quantum processing into a classical deep learning pipeline, demonstrating the potential of quantum convolution in image classification tasks. The readme file could further discuss the implications of combining quantum and classical approaches and interpret the training results.
+Project Overview
+This project introduces quantum processing elements into a traditional deep learning workflow, showcasing how quantum convolutional operations can enhance image classification performance. Expanding the README file to explore the broader impact of hybrid quantum-classical systems and to analyze training outcomes would add valuable depth.
 
-## Libraries
+Libraries and Their Roles
+PennyLane (pennylane):
+Enables differentiable programming for quantum devices. It bridges quantum circuit design with classical machine learning frameworks like TensorFlow, making hybrid model development seamless.
 
-1. **PennyLane (`pennylane`):**
-   - **Purpose:** PennyLane is a library for differentiable programming of quantum computers. It allows users to define quantum circuits and seamlessly integrate them with classical machine learning frameworks like TensorFlow.
+NumPy (np):
+A fundamental library for performing numerical and array operations in Python. It supports essential mathematical functions used throughout the project.
 
-2. **NumPy (`np`):**
-   - **Purpose:** NumPy is a powerful library for numerical operations in Python. It is extensively used for mathematical and array operations.
+PennyLane Templates (pennylane.templates):
+Offers ready-made quantum circuit structures. Here, RandomLayers from this module is used to quickly implement randomized quantum circuits.
 
-3. **PennyLane Templates (`pennylane.templates`):**
-   - **Purpose:** This module provides pre-defined quantum circuit templates. In this code, `RandomLayers` is used to implement a random quantum circuit.
+TensorFlow (tf):
+A widely-used open-source library for machine learning. It provides tools for constructing, training, and evaluating the classical parts of the neural network models.
 
-4. **TensorFlow (`tf`):**
-   - **Purpose:** TensorFlow is an open-source machine learning library. In this code, it's used for building, training, and evaluating classical deep learning models.
+Keras (keras):
+A user-friendly deep learning API built on TensorFlow, simplifying the process of creating and training neural networks.
 
-5. **Keras (`keras`):**
-   - **Purpose:** Keras is a high-level neural networks API running on top of TensorFlow. It provides an easy-to-use interface for building and training neural networks.
+Matplotlib (plt):
+A plotting library employed to visualize model metrics such as accuracy and loss across training epochs.
 
-6. **Matplotlib (`plt`):**
-   - **Purpose:** Matplotlib is a 2D plotting library for creating visualizations. In this code, it's used for plotting accuracy and loss curves.
+OS (os):
+Used to manage filesystem interactions like checking for existing directories and handling file paths.
 
-7. **OS (`os`):**
-   - **Purpose:** The `os` module provides a way to interact with the operating system. It's used here to handle file paths and check if directories exist.
+PIL (Image from PIL):
+The Python Imaging Library, utilized for loading, modifying, and saving image files during the data preparation stage.
 
-8. **PIL (`Image` from `PIL`):**
-   - **Purpose:** The Python Imaging Library (PIL) is used for opening, manipulating, and saving image files. In this code, it's used to load and preprocess images.
+Scikit-learn (train_test_split):
+Provides a convenient way to partition datasets into training and testing sets, crucial for model validation.
 
-9. **Scikit-learn (`train_test_split`):**
-   - **Purpose:** Scikit-learn is a machine learning library. The `train_test_split` function is used to split the dataset into training and testing sets.
+Workflow Summary
+Setup and Configuration:
 
-## Procedure
+All required libraries are imported, covering quantum computing (PennyLane), classical deep learning (TensorFlow and Keras), and visualization (Matplotlib).
 
-1. **Initialization and Configuration:**
-   - The code starts by importing necessary libraries, including PennyLane for quantum computing, TensorFlow for classical deep learning, and Matplotlib for visualization.
-   - Parameters such as the number of optimization epochs (`n_epochs`), the number of random layers in the quantum circuit (`n_layers`), and dataset sizes are set.
+Key hyperparameters such as the number of training epochs (n_epochs), quantum circuit complexity (n_layers), and dataset split ratios are defined.
 
-2. **Dataset Loading and Preprocessing:**
-   - Images and labels are collected from the "consolidated" dataset folder, where images are categorized into "Autistic" and "Non_Autistic" subfolders.
-   - Labels are encoded with indices for autistic and non-autistic classes.
-   - Image preprocessing involves resizing, normalization, and adding an extra dimension for convolution channels. The dataset is then split into training and testing sets using `train_test_split` from scikit-learn.
-  
+Data Preparation:
+
+Images are gathered from the "consolidated" dataset, categorized into "Autistic" and "Non_Autistic" subfolders.
+
+Each image is labeled numerically based on its category.
+
+Preprocessing steps include resizing images, normalizing pixel values, and expanding dimensions to fit convolutional input requirements.
+
+The dataset is divided into training and testing sets using train_test_split from scikit-learn.
+
+
 ![Framework](./images/output.png)
 
 3. **Quantum Circuit Definition (`circuit`):**
